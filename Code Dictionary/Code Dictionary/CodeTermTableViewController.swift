@@ -10,21 +10,35 @@ import UIKit
 
 class CodeTermTableViewController: UITableViewController {
     
-    let terms = ["Array", "Boolean", "Int", "Double", "String"];
+    var terms: [Term] = [];
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let term1 = Term()
+        term1.name = "Array"
+        term1.definition = "Array is Awesome"
+        terms.append(term1)
+        
+        let term2 = Term()
+        term2.name = "Boolean"
+        term2.definition = "Boolean is nice"
+        terms.append(term2)
+        
+        let term3 = Term()
+        term3.name = "String"
+        term3.definition = "String is useful"
+        terms.append(term3)
+        
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return terms.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell();
-        cell.textLabel?.text = terms[indexPath.row]
+        cell.textLabel?.text = terms[indexPath.row].name
 
         return cell
     }
@@ -37,8 +51,9 @@ class CodeTermTableViewController: UITableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let definitionVC = segue.destination as! DefinitionViewController
-        let selectedTerm = sender as! String
-        definitionVC.term = selectedTerm
+            if let selectedTerm = sender as? Term {
+                definitionVC.term = selectedTerm
+            }
     }
 
 }
