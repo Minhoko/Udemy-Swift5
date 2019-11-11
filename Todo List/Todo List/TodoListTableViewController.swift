@@ -10,24 +10,19 @@ import UIKit
 
 class TodoListTableViewController: UITableViewController {
     
-    var toDoList: [ToDoItem] = [];
+    var toDoList: [ToDo] = [];
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let todo1 = ToDoItem();
-        todo1.name = "Buy Eggs"
-        todo1.isImportant = true;
-        toDoList.append(todo1)
-        
-        let todo2 = ToDoItem();
-        todo2.name = "Walk Dog"
-        toDoList.append(todo2)
-        
-        let todo3 = ToDoItem();
-        todo3.name = "Eat Cheese"
-        toDoList.append(todo3)
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
+            if let coreDataToDo = try? context.fetch(ToDo.fetchRequest()) as? [ToDo]{
+                toDoList = coreDataToDo
+                tableView.reloadData()
+            }
+        }
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -38,8 +33,16 @@ class TodoListTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
-        let importantMark = toDoList[indexPath.row].isImportant ? "❗️" : "";
-        cell.textLabel?.text = "\(importantMark) \(toDoList[indexPath.row].name)"
+        let toDo = toDoList[indexPath.row]
+        
+        if toDo.isImportant {
+            if let name = toDo.name {
+                cell.textLabel?.text = "❗️" + name
+            }
+        } else {
+            cell.textLabel?.text = toDo.name
+        }
+        
         
         return cell
     }
@@ -52,16 +55,10 @@ class TodoListTableViewController: UITableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let toDoItemVC = segue.destination as? ToDoItemViewController {
-            if let selectedItem = sender as? ToDoItem {
+            if let selectedItem = sender as? ToDo {
                 toDoItemVC.todoItem = selectedItem
-                toDoItemVC.ToDoListTableVC = self
             }
         }
-        
-        if let addToDoVC = segue.destination as? AddToDoViewController {
-            addToDoVC.ToDoListTableVC = self
-        }
-        
     }
     
 }

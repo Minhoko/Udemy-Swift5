@@ -11,32 +11,30 @@ import UIKit
 class ToDoItemViewController: UIViewController {
     @IBOutlet weak var toDoListItemLabel: UILabel!
     
-    var todoItem = ToDoItem()
-    var ToDoListTableVC: TodoListTableViewController? = nil
+    var todoItem: ToDo? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let importantMark = todoItem.isImportant ? "❗️" : ""
-        toDoListItemLabel.text = "\(importantMark) \(todoItem.name)";
+        
+        if todoItem !== nil {
+            if todoItem!.isImportant {
+                if let name = todoItem?.name {
+                    toDoListItemLabel.text =  "❗️" + name
+                }
+            } else {
+                toDoListItemLabel.text = todoItem!.name
+            }
+        }
     }
     
 
     @IBAction func completeButton(_ sender: Any) {
-        if let toDos = ToDoListTableVC?.toDoList {
-            var index = 0;
-            for item in toDos {
-                if item.name == todoItem.name {
-                    ToDoListTableVC?.toDoList.remove(at: index)
-                    ToDoListTableVC?.tableView.reloadData()
-                    navigationController?.popViewController(animated: true)
-                    return
-                } else {
-                    index += 1
-                }
+        if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
+            if todoItem !== nil {
+                context.delete(todoItem!)
+                (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
+                navigationController?.popViewController(animated: true)
             }
         }
-        
-        
-        
     }
 }
