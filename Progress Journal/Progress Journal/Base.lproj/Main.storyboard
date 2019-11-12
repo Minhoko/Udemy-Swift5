@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="SLm-px-z0W">
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Progress Journal-->
+        <scene sceneID="HHz-0t-Cvf">
+            <objects>
+                <tableViewController id="5dD-jO-CA7" customClass="ProgressTableViewController" customModule="Progress_Journal" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="v3I-1s-EsF">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="progressCell" id="DaY-iE-VTy">
+                                <rect key="frame" x="0.0" y="28" width="375" height="43.666667938232422"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DaY-iE-VTy" id="K3l-UR-2ib">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.666667938232422"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="5dD-jO-CA7" id="P3S-T9-wIR"/>
+                            <outlet property="delegate" destination="5dD-jO-CA7" id="Ikt-G4-o4d"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Progress Journal" id="1Hd-BU-tPR">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="A9y-kb-ozs"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="jap-Q0-d1W">
+                            <connections>
+                                <segue destination="S1t-R3-gq0" kind="show" id="FjM-jA-hUR"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="xbV-J6-Rc4" kind="show" identifier="goToDetail" id="W9h-Mb-OM6"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eaW-xg-Iey" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="466" y="137"/>
+        </scene>
+        <!--Create Progress View Controller-->
+        <scene sceneID="tbP-gr-22v">
+            <objects>
+                <viewController id="S1t-R3-gq0" customClass="CreateProgressViewController" customModule="Progress_Journal" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1lT-hh-d28">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Mvt-5X-rDS">
+                                <rect key="frame" x="50" y="398" width="275" height="38"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XVG-sv-oLa">
+                                <rect key="frame" x="152.66666666666666" y="486" width="70" height="42"/>
+                                <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="70" id="7ID-cc-QuO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="Add">
+                                    <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="addTapped:" destination="S1t-R3-gq0" eventType="touchUpInside" id="PCo-Mn-oSh"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tBq-gm-Yxt">
+                                <rect key="frame" x="50" y="118" width="275" height="275"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="tBq-gm-Yxt" secondAttribute="height" multiplier="1:1" id="hGv-ZW-NT7"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="XVG-sv-oLa" firstAttribute="centerX" secondItem="Mvt-5X-rDS" secondAttribute="centerX" id="2sR-Mo-Gjr"/>
+                            <constraint firstItem="Mvt-5X-rDS" firstAttribute="width" secondItem="tBq-gm-Yxt" secondAttribute="width" id="3dW-g3-8cK"/>
+                            <constraint firstItem="Mvt-5X-rDS" firstAttribute="centerX" secondItem="tBq-gm-Yxt" secondAttribute="centerX" id="Dt7-OD-psA"/>
+                            <constraint firstItem="XVG-sv-oLa" firstAttribute="top" secondItem="Mvt-5X-rDS" secondAttribute="bottom" constant="50" id="KLC-hd-tOo"/>
+                            <constraint firstItem="vmc-Pl-Ljw" firstAttribute="trailing" secondItem="tBq-gm-Yxt" secondAttribute="trailing" constant="50" id="Pna-mQ-Jg4"/>
+                            <constraint firstItem="tBq-gm-Yxt" firstAttribute="leading" secondItem="vmc-Pl-Ljw" secondAttribute="leading" constant="50" id="ifH-7B-OUt"/>
+                            <constraint firstItem="tBq-gm-Yxt" firstAttribute="top" secondItem="vmc-Pl-Ljw" secondAttribute="top" constant="30" id="l18-Mg-IXA"/>
+                            <constraint firstItem="Mvt-5X-rDS" firstAttribute="top" secondItem="tBq-gm-Yxt" secondAttribute="bottom" constant="5" id="mwc-q6-g2J"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="vmc-Pl-Ljw"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="oaz-pT-4IL">
+                        <barButtonItem key="rightBarButtonItem" systemItem="camera" id="LAM-75-5oi">
+                            <connections>
+                                <action selector="cameraTapped:" destination="S1t-R3-gq0" id="Dtf-qi-GK6"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="addButton" destination="XVG-sv-oLa" id="S1t-e5-O0x"/>
+                        <outlet property="imageViewLabel" destination="tBq-gm-Yxt" id="BnW-jA-eUk"/>
+                        <outlet property="titleTextField" destination="Mvt-5X-rDS" id="R9d-KA-qIB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XhZ-KO-Av4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1253.6231884057972" y="136.60714285714286"/>
+        </scene>
+        <!--Detail Progress View Controller-->
+        <scene sceneID="duJ-gh-2pK">
+            <objects>
+                <viewController id="xbV-J6-Rc4" customClass="DetailProgressViewController" customModule="Progress_Journal" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VaU-kq-d7m">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="M4n-Pi-Kse">
+                                <rect key="frame" x="0.0" y="88" width="375" height="690"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="M4n-Pi-Kse" firstAttribute="top" secondItem="CCL-bj-0Pb" secondAttribute="top" id="0r9-iM-K6C"/>
+                            <constraint firstItem="CCL-bj-0Pb" firstAttribute="trailing" secondItem="M4n-Pi-Kse" secondAttribute="trailing" id="lNM-II-PJB"/>
+                            <constraint firstItem="CCL-bj-0Pb" firstAttribute="bottom" secondItem="M4n-Pi-Kse" secondAttribute="bottom" id="mj4-oF-t5s"/>
+                            <constraint firstItem="M4n-Pi-Kse" firstAttribute="leading" secondItem="CCL-bj-0Pb" secondAttribute="leading" id="tNf-EJ-n0A"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="CCL-bj-0Pb"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="HZb-3I-LgH"/>
+                    <connections>
+                        <outlet property="fullWidthImageView" destination="M4n-Pi-Kse" id="p5M-Yw-Aq2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ofw-3H-E5D" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1254" y="825"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="sqB-Ed-mXh">
+            <objects>
+                <navigationController id="SLm-px-z0W" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="V1U-Fp-Bsn">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="5dD-jO-CA7" kind="relationship" relationship="rootViewController" id="ZZq-IG-s2B"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Aum-Fj-0uV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-455" y="137"/>
+        </scene>
+    </scenes>
+</document>
