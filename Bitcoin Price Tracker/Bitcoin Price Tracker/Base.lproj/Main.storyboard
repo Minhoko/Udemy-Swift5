@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BrN-iw-YA1">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Bitcoin-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="BitcoinViewController" customModule="Bitcoin_Price_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bitcoin_logo" translatesAutoresizingMaskIntoConstraints="NO" id="kNZ-ET-OnQ">
+                                <rect key="frame" x="50" y="291" width="314" height="314"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="kNZ-ET-OnQ" secondAttribute="height" multiplier="1:1" id="Nwv-j9-VZW"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="...Loading" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="C3T-mE-cfJ">
+                                <rect key="frame" x="20" y="202" width="374" height="84"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="70"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HdN-Vc-8yq">
+                                <rect key="frame" x="20" y="625" width="374" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="idH-i3-9AX">
+                                <rect key="frame" x="20" y="645" width="374" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="HdN-Vc-8yq" secondAttribute="trailing" constant="20" id="4ZH-5N-cjP"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="kNZ-ET-OnQ" secondAttribute="trailing" constant="50" id="DEh-u2-j51"/>
+                            <constraint firstItem="HdN-Vc-8yq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="H1C-Ei-QUP"/>
+                            <constraint firstItem="idH-i3-9AX" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="He0-hN-EyW"/>
+                            <constraint firstItem="kNZ-ET-OnQ" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="JlL-PG-Lp0"/>
+                            <constraint firstItem="idH-i3-9AX" firstAttribute="top" secondItem="HdN-Vc-8yq" secondAttribute="bottom" constant="20" id="K3f-OZ-RVf"/>
+                            <constraint firstItem="kNZ-ET-OnQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="QVb-J4-D7K"/>
+                            <constraint firstItem="HdN-Vc-8yq" firstAttribute="top" secondItem="kNZ-ET-OnQ" secondAttribute="bottom" constant="20" id="eGp-bF-VXe"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="C3T-mE-cfJ" secondAttribute="trailing" constant="20" id="pW6-nG-GfP"/>
+                            <constraint firstItem="kNZ-ET-OnQ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="r3U-W7-2Oe"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="idH-i3-9AX" secondAttribute="trailing" constant="20" id="rRw-vb-3T7"/>
+                            <constraint firstItem="kNZ-ET-OnQ" firstAttribute="top" secondItem="C3T-mE-cfJ" secondAttribute="bottom" constant="5" id="up1-kD-Vsa"/>
+                            <constraint firstItem="C3T-mE-cfJ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="yFm-Ut-Pnw"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Bitcoin" id="nF3-jb-ykB">
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="rs0-hG-xm2">
+                            <connections>
+                                <action selector="refreshTapped:" destination="BYZ-38-t0r" id="vqh-4G-iiO"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="euroPriceLabel" destination="HdN-Vc-8yq" id="Gwx-iH-R8u"/>
+                        <outlet property="usdPriceLabel" destination="C3T-mE-cfJ" id="Ifz-XC-EhB"/>
+                        <outlet property="yenPriceLabel" destination="idH-i3-9AX" id="LJO-OB-69R"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1042.0289855072465" y="115.84821428571428"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ifO-s6-GaX">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="BrN-iw-YA1" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="XKi-Ey-fd1">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="dp0-6b-EPf"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zxi-fI-BJG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="131.8840579710145" y="115.84821428571428"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="bitcoin_logo" width="216" height="233"/>
+    </resources>
+</document>
